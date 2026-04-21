@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 
 namespace TMPro.Examples
@@ -136,13 +137,13 @@ namespace TMPro.Examples
             {
                 mouseWheel *= 10;
 
-                if (Input.GetKeyDown(KeyCode.I))
+                if (Keyboard.current.iKey.wasPressedThisFrame)
                     CameraMode = CameraModes.Isometric;
 
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Keyboard.current.fKey.wasPressedThisFrame)
                     CameraMode = CameraModes.Follow;
 
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Keyboard.current.sKey.wasPressedThisFrame)
                     MovementSmoothing = !MovementSmoothing;
 
 
@@ -170,7 +171,8 @@ namespace TMPro.Examples
                 }
 
                 // Get Input from Mobile Device
-                if (touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+                if (Touchscreen.current.touches[0].phase.ReadValue() 
+                == UnityEngine.InputSystem.TouchPhase.Moved && Touchscreen.current.touches[0].isInProgress)
                 {
                     Vector2 deltaPosition = Input.GetTouch(0).deltaPosition;
 

@@ -1,29 +1,24 @@
-using System;
-using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using TMPro;
 
-namespace Grid
+public class GridDebugObject : MonoBehaviour
 {
-    public class GridDebugObject : MonoBehaviour
+
+    [SerializeField] private TextMeshPro textMeshPro;
+
+
+    private GridObject gridObject;
+
+    public void SetGridObject(GridObject gridObject)
     {
-        [Header("Debug Settings")]
-        [SerializeField] private TextMeshPro gridPositionText;
-        // [SerializeField] private Color gizmoColor = Color.yellow;
-        
-        private GridObject _gridObject;
-
-        private void Update()
-        {
-            gridPositionText.text = _gridObject.ToString();
-        }
-
-        public void SetGridObject(GridObject gridObject) => this._gridObject = gridObject;
-        
-        // private void OnDrawGizmos()
-        // {
-        //     Gizmos.color = gizmoColor;
-        //     Gizmos.DrawWireCube(transform.position, new Vector3(2f, 0.05f, 2f));
-        // }
+        this.gridObject = gridObject;
     }
+
+    private void Update()
+    {
+        textMeshPro.text = gridObject.ToString();
+    }
+
 }

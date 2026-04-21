@@ -226,5 +226,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3393a7d4b4abeef944ea591e87c16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grid.GridDebugObject
-  gridPositionText: {fileID: 3251507919000734321}
-  gizmoColor: {r: 1, g: 1, b: 1, a: 1}
+  textMeshPro: {fileID: 3251507919000734321}
